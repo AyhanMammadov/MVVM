@@ -30,6 +30,9 @@ namespace Academy
             this.DataContext = this.viewModel;
         }
 
-        
+        private void infoButtonClicked(object sender, RoutedEventArgs e) => this.viewModel.ActiveViewModel = new InfoViewModel();
+        private void groupsButtonClicked(object sender, RoutedEventArgs e) => this.viewModel.ActiveViewModel = new GroupsViewModel();
+        private void studentsButtonClicked(object sender, RoutedEventArgs e) => this.viewModel.ActiveViewModel = new StudentsViewModel();
+        private void teachersButtonClicked(object sender, RoutedEventArgs e) => this.viewModel.ActiveViewModel = new TeachersViewModel();
     }
 }

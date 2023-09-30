@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,14 +16,16 @@ using System.Windows.Shapes;
 
 namespace Academy.Views
 {
-    /// <summary>
-    /// Interaction logic for InfoView.xaml
-    /// </summary>
+
     public partial class InfoView : UserControl
     {
         public InfoView()
         {
             InitializeComponent();
+
+            this.infoText.Text = File.ReadAllText("assets/info.txt");
         }
+
+        private void infoText_TextChanged(object sender, TextChangedEventArgs e) => File.WriteAllText("assets/info.txt", this.infoText.Text);
     }
 }

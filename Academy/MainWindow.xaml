@@ -13,10 +13,10 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Margin="5" >
-            <Button Height="35" Margin="10 40 " Content="Info"/>
-            <Button Height="35" Margin="10 40 " Content="Groups"/>
-            <Button Height="35" Margin="10 40 " Content="Students"/>
-            <Button Height="35" Margin="10 40 " Content="Teachers"/>
+            <Button Height="35" Margin="10 40 " Content="Info" Click="infoButtonClicked"/>
+            <Button Height="35" Margin="10 40 " Content="Groups" Click="groupsButtonClicked"/>
+            <Button Height="35" Margin="10 40 " Content="Students" Click="studentsButtonClicked"/>
+            <Button Height="35" Margin="10 40 " Content="Teachers" Click="teachersButtonClicked"/>
         </StackPanel>
 
 
