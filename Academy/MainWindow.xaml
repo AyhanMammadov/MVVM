@@ -1,0 +1,28 @@
+﻿<Window x:Class="Academy.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Academy"
+        mc:Ignorable="d"
+        Title="Academy" Height="500" Width="800" Background="Gray">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Margin="5" >
+            <Button Height="35" Margin="10 40 " Content="Info"/>
+            <Button Height="35" Margin="10 40 " Content="Groups"/>
+            <Button Height="35" Margin="10 40 " Content="Students"/>
+            <Button Height="35" Margin="10 40 " Content="Teachers"/>
+        </StackPanel>
+
+
+        <ContentControl Margin="10" Grid.Column="1" Content="{Binding ActiveViewModel}">
+
+        </ContentControl>
+
+    </Grid>
+</Window>
