@@ -19,6 +19,7 @@ CREATE TABLE Students (
     [TeacherID] INT,
     [GroupID] INT
 );
+
 alter table Students
 add foreign key ([TeacherID]) references Teachers(ID);
 alter table Students
