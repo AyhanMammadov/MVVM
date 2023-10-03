@@ -48,7 +48,8 @@ public class MainViewModel : ViewModelBase
     private CommandBase teachersCommand;
 
     public CommandBase TeachersCommand => this.teachersCommand ??= new CommandBase(
-        execute: () => this.ActiveViewModel = App.container.GetInstance<TeachersViewModel>(),
+        execute: () => 
+        this.ActiveViewModel = App.container.GetInstance<TeachersViewModel>(),
         canExecute: () => true);
 
     #endregion

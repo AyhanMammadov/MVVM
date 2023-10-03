@@ -19,9 +19,6 @@ namespace Academy
 
         protected override void OnStartup(StartupEventArgs e)
         {
-
-            Container container = new Container();
-
             container.RegisterSingleton<IGroupRepository, GroupRepository>();
             container.RegisterSingleton<ITeacherRepository, TeacherRepository>();
             container.RegisterSingleton<IStudentRepository, StudentRepository>();
