@@ -1,4 +1,5 @@
 ﻿using Academy.Models;
+using Academy.Repositories.Base;
 using Dapper;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Academy.Repositories;
-public class StudentRepository
+public class StudentRepository : IStudentRepository
 {
     private const string connectionString = $"Server=localhost;Database=Academy;Integrated Security = True;";
     private readonly SqlConnection sqlConnection;

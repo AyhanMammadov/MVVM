@@ -1,5 +1,8 @@
-﻿using Academy.ViewModels;
+﻿using Academy.Repositories;
+using Academy.Repositories.Base;
+using Academy.ViewModels;
 using Academy.ViewModels.Base;
+using SimpleInjector;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,20 +22,19 @@ namespace Academy
 {
     public partial class MainWindow : Window
     {
-        private MainViewModel viewModel;
         public MainWindow()
         {
             InitializeComponent();
 
-            this.viewModel = new MainViewModel();
+            var viewModel = new MainViewModel();
 
-            this.viewModel.ActiveViewModel = new HomeViewModel();
-            this.DataContext = this.viewModel;
+            viewModel.ActiveViewModel = new HomeViewModel();
+            this.DataContext = viewModel;
+
+
+            
         }
 
-        private void infoButtonClicked(object sender, RoutedEventArgs e) => this.viewModel.ActiveViewModel = new InfoViewModel();
-        private void groupsButtonClicked(object sender, RoutedEventArgs e) => this.viewModel.ActiveViewModel = new GroupsViewModel();
-        private void studentsButtonClicked(object sender, RoutedEventArgs e) => this.viewModel.ActiveViewModel = new StudentsViewModel();
-        private void teachersButtonClicked(object sender, RoutedEventArgs e) => this.viewModel.ActiveViewModel = new TeachersViewModel();
+
     }
 }

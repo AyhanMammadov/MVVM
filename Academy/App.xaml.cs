@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Academy.Repositories;
+using Academy.Repositories.Base;
+using Academy.ViewModels;
+using SimpleInjector;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -8,10 +12,28 @@ using System.Windows;
 
 namespace Academy
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
+    
     public partial class App : Application
     {
+        public static Container container { get; set; } = new Container();
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+
+            Container container = new Container();
+
+            container.RegisterSingleton<IGroupRepository, GroupRepository>();
+            container.RegisterSingleton<ITeacherRepository, TeacherRepository>();
+            container.RegisterSingleton<IStudentRepository, StudentRepository>();
+
+
+            container.RegisterSingleton<GroupsViewModel>();
+            container.RegisterSingleton<TeachersViewModel>();
+            container.RegisterSingleton<StudentsViewModel>();
+
+            container.Verify();
+
+            base.OnStartup(e);
+        }
     }
 }

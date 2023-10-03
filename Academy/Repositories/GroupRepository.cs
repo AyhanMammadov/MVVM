@@ -1,4 +1,5 @@
 ﻿using Academy.Models;
+using Academy.Repositories.Base;
 using Dapper;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Academy.Repositories;
-public class GroupRepository
+public class GroupRepository : IGroupRepository
 {
     public int Id { get; set; }
     public string Name { get; set; }

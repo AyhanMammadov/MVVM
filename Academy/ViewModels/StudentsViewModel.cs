@@ -1,5 +1,6 @@
 ﻿using Academy.Models;
 using Academy.Repositories;
+using Academy.Repositories.Base;
 using Academy.ViewModels.Base;
 using System;
 using System.Collections.Generic;
@@ -11,11 +12,13 @@ using System.Threading.Tasks;
 namespace Academy.ViewModels;
 public class StudentsViewModel:ViewModelBase
 {
+    private readonly IStudentRepository studentRepository;
     public ObservableCollection<Student> Students { get; set; }
 
 
-    public StudentsViewModel()
+    public StudentsViewModel(IStudentRepository repository)
     {
+        this.studentRepository = repository;
         Students = new ObservableCollection<Student>();
         this.RefreshAll();
     }
@@ -24,8 +27,7 @@ public class StudentsViewModel:ViewModelBase
     private void RefreshAll()
     {
         Students.Clear();
-        var studentRepository = new StudentRepository();
-        var result = studentRepository.GetAll();
+        var result = this.studentRepository.GetAll();
         foreach (var item in result)
         {
             Students.Add(item);
